@@ -1,6 +1,6 @@
 [package]
 name = "electrs"
-version = "0.9.3"
+version = "0.9.7"
 authors = ["Roman Zeyde <me@romanzey.de>"]
 description = "An efficient re-implementation of Electrum Server in Rust"
 license = "MIT"
@@ -16,22 +16,21 @@ build = "build.rs"
 default = ["metrics"]
 metrics = ["prometheus", "tiny_http"]
 metrics_process = ["prometheus/process"]
-ignore_default_config_files = []
 
 [package.metadata.configure_me]
 spec = "internal/config_specification.toml"
 
 [dependencies]
 anyhow = "1.0"
-bitcoin = { version = "0.27.1", features = ["use-serde", "rand"] }
-bitcoincore-rpc = "0.14.0"
+bitcoin = { version = "0.28.1", features = ["use-serde", "rand"] }
+bitcoincore-rpc = "0.15"
 configure_me = "0.4"
 crossbeam-channel = "0.5"
 dirs-next = "2.0"
 env_logger = "0.9"
 fs_extra = "1.2"
 log = "0.4"
-parking_lot = "0.11"
+parking_lot = "0.12"
 prometheus = { version = "0.13", optional = true }
 rayon = "1.5"
 serde = "1.0"
@@ -51,7 +50,7 @@ default-features = false
 features = ["zstd", "snappy"]
 
 [build-dependencies]
-configure_me_codegen = "0.4"
+configure_me_codegen = "0.4.2"
 
 [dev-dependencies]
-tempfile = "3.2"
+tempfile = "3.3"
